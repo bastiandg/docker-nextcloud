@@ -52,7 +52,7 @@ if docker network inspect nginx-proxy &> /dev/null ; then
 fi
 
 # run docker-compose to bring up the images
-if which docker-compose ; then
+if ! which docker-compose ; then
 	sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	sudo chmod +x /usr/local/bin/docker-compose
 fi
