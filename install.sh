@@ -47,7 +47,7 @@ cd "$DATADIR"
 . "$CONFIG"
 
 # create nginx-proxy network
-if docker network inspect nginx-proxy &> /dev/null ; then
+if ! docker network inspect nginx-proxy &> /dev/null ; then
 	docker network create -d bridge nginx-proxy
 fi
 
