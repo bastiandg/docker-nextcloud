@@ -78,7 +78,7 @@ services:
     volumes:
      - "${DATADIR}/custom_apps:/var/www/html/custom_apps"
      - "${DATADIR}/config:/var/www/html/config"
-     - "${DATADIR}/data:/var/www/html/apps"
+     - "${DATADIR}/data:/var/www/html/data"
     restart: always
     domainname: "${DOMAIN_NAME}"
     depends_on:
