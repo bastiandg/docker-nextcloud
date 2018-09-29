@@ -14,6 +14,7 @@
         server {{ .Container.IP }} down;
     {{ end }}
 {{ end }}
+client_max_body_size 2048M;
 
 # If we receive X-Forwarded-Proto, pass it through; otherwise, pass along the
 # scheme used to connect to this server
