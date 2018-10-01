@@ -39,6 +39,17 @@ services:
     dns: 1.1.1.1
     restart: always
 
+  redis:
+    container_name: redis
+    image: redis
+    expose:
+     - "6379/tcp"
+    volumes:
+      - "${DATADIR}/redis:/data"
+    restart: always
+    networks:
+     - proxy-tier
+
   db:
     container_name: db
     image: mariadb
