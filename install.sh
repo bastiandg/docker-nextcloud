@@ -58,6 +58,3 @@ if ! which docker-compose ; then
 fi
 
 docker-compose up -d
-# https://docs.nextcloud.com/server/14/admin_manual/configuration_database/linux_database_configuration.html#database-read-committed-transaction-isolation-level
-sleep 5
-docker exec -ti db /bin/bash -c 'mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --execute="SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED; SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;"'

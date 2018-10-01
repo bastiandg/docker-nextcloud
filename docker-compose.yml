@@ -61,7 +61,7 @@ services:
      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
      - "MYSQL_USER=${MYSQL_USER}"
      - CREATE_DATABASE=true
-    command: ["--max-connections", "1000"]
+    command: ["--max-connections", "1000", "--transaction-isolation", "READ-COMMITTED", "--binlog-format", "ROW"]
     volumes:
      - "${DATADIR}/mysql:/var/lib/mysql"
     restart: always
