@@ -2,9 +2,9 @@
 
 set -eu -o pipefail
 
-DOMAIN_NAME="example.net"
-EMAIL="name@example.net"
-DATADIR="/var/data/nextcloud"
+DOMAIN_NAME="${1:-example.net}"
+EMAIL="${2:-name@example.net}"
+DATADIR="${3:-/var/data/nextcloud}"
 
 password () {
 	tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -1
