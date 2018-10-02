@@ -13,7 +13,11 @@ password () {
 CONFIG="$DATADIR/config.env"
 if [ ! -d "$DATADIR" ] ; then
 	sudo mkdir -p "$DATADIR"
-	sudo chown -R "$USER:$USER" "$DATADIR"
+	set +u
+	if [ -n "$USER" ] ; then
+		sudo chown -R "$USER:$USER" "$DATADIR"
+	fi
+	set -u
 	cp -r volumes/* "$DATADIR"
 	cp docker-compose.yml "$DATADIR"
 	if [ ! -f "$CONFIG" ] ; then
