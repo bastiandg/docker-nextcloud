@@ -7,9 +7,7 @@ EMAIL="${2:-name@example.net}"
 DATADIR="${3:-/var/data/nextcloud}"
 
 password () {
-	set +o pipefail
-	tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -1
-	set -o pipefail
+	shuf -zer -n30 {A..Z} {a..z} {0..9}
 }
 
 CONFIG="$DATADIR/config.env"
